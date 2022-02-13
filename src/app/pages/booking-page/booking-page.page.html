@@ -1,43 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Booking Page</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button text="Back"></ion-back-button>
-      </ion-buttons>
+    <ion-title>bookingPage</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-  <app-header></app-header>
-  <div id="agent">
-    <h4>Agent Id: </h4>
-  </div><br>
-  
-  <div class="form">
-  <ion-item>
-
-        <ion-label>Date: </ion-label>
-        <ion-input formControlName="date" type= "date"></ion-input>
-  
-        <ion-label>Time: </ion-label>
-        <ion-input formControlName="time" type= "time"></ion-input>
-  
-        <ion-label>OHIP: </ion-label>
-        <ion-input formControlName="ohip" type= "number"></ion-input>
-  
-        <ion-label>Email: </ion-label>
-        <ion-input formControlName="email" type= "email"></ion-input>
-  
-        <ion-label>Phone: </ion-label>
-        <ion-input formControlName="phone" type= "number"></ion-input>
-  
-  
-    <ion-button type="sumbit" expand="block" routerLink="/"> Add Appointment</ion-button>
-  </ion-item> 
-  </div>
+<app-header></app-header>
 
 
-  <app-footer></app-footer>
+<app-footer></app-footer>
 </ion-content>
-

@@ -7,8 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BookingPagePageRoutingModule } from './booking-page-routing.module';
 
 import { BookingPagePage } from './booking-page.page';
-import {ComponentsModule} from '../../components/components.module';
-
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
