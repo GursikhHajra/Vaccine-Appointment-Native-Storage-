@@ -13,7 +13,8 @@ import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, NativeStorage],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+  
