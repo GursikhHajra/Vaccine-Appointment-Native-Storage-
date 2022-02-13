@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private router: Router) {}
 
+  goPage() {
+    this.router.navigate(['booking-page']).then(nav => {
+      console.log(nav);
+      }, err => {  
+      console.log(err); 
+      });
+  }
+
+  ngOnInit() {}
 }
