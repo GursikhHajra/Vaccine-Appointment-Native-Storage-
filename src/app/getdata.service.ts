@@ -11,19 +11,31 @@ export class GetdataService {
 
   msg = 'NativeStorge ...';
   inKey; 
-  inValue; 
+  inValue;
   values: Vdata[] = new Array();
   jsonData: Vdata[] = VDATA.VaccineData
   //data: Vdata[] = JSON.parse(this.jsonData);
 
   constructor(private router: Router, private storage: NativeStorage) { }
   
-  loadData() {
+ /* loadData() {
     for(let i = 0; i < this.jsonData.length; i++) {
       let nativeS = JSON.stringify(this.jsonData[i]);
       this.storage.setItem(i.toString(), nativeS)
       console.log("This is Native",nativeS, "KeyValue", i, "JsonData: ", this.jsonData);
     }
+  }
+*/
+
+addRec() {
+  this.storage.setItem(this.inKey, this.jsonData)
+  .then( data => {
+  this.msg = 'Record inserted';
+  },
+  error => { this.msg = 'Record NOT inserted'; }
+  );
+  console.log("values: ", this.values);
+  console.log("jsonData: ", this.jsonData);
   }
 
   retrieveDate(): Vdata[]{
@@ -97,14 +109,7 @@ export class GetdataService {
     );
     }  // showAll
 
-    addRec() {
-      this.storage.setItem(this.inKey, this.inValue)
-      .then( data => {
-      this.msg = 'Record inserted';
-      },
-      error => { this.msg = 'Record NOT inserted'; }
-      );
-      }
+
 
       removeRec() {
         this.storage.remove(this.inKey)

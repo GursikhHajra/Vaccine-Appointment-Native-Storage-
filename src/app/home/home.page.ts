@@ -77,7 +77,7 @@ export class HomePage {
   
 
   loadMyData(){
-    this.ldData.loadData();
+    this.ldData.addRec();
     console.log("it is clicked", this.myVar);
 }
 

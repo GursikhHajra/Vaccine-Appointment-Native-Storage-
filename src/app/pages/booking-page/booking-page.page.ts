@@ -16,14 +16,17 @@ export class BookingPagePage implements OnInit {
   data: any;
 
   ngOnInit() {
+    this.data = this.route.snapshot.params.parm; 
+    console.dir(this.route.snapshot);
+    console.log("The data for the agent",this.data);
 
 
     this.formData = new FormGroup({
-      setDate:  new FormControl(),
-      setTime:  new FormControl(),
-      setOhip:  new FormControl(),
-      setEmail: new FormControl(),
-      setPhone: new FormControl()
+      setDate:  new FormControl(date => date.getFullYear),
+      setTime:  new FormControl(time => time.getHours),
+      setOhip:  new FormControl(21659815),
+      setEmail: new FormControl("james@gmail.com"),
+      setPhone: new FormControl(121231231)
     });
   }
 
@@ -31,9 +34,7 @@ export class BookingPagePage implements OnInit {
     // console.log(this.formData.value)
     // this.ldData.addData((this.formData.value));
     console.log("Form Data",this.formData.value)
-    this.data = this.route.snapshot.params.parm; 
-    console.dir(this.route.snapshot);
-    console.log("The data for the agent",this.data);
+    
    }
 
 }
