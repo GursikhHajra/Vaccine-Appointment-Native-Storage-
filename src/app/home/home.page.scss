@@ -25,3 +25,54 @@
 #container a {
   text-decoration: none;
 }
+
+#dataShow{
+  overflow-y: auto;
+  border-collapse: collapse;
+  background-color: orange;
+  width: 1110px;
+  height: 200px;
+}
+
+#button{
+  text-align: center;
+  background-color: lightblue;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#agent{
+  text-align: center;
+  background-color: blue;
+}
+
+input[type=text] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid blueviolet;
+  background-color: blue;
+}
+
+.DeleteDiv {
+  border: 5px outset red;
+  background-color: lightcoral;    
+  text-align: center;
+}
+
+input[type=number] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid blueviolet;
+  background-color: lightcoral;
+}
+  
+hr.hr{
+  border: 1px solid black;
+}

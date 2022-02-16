@@ -11,39 +11,39 @@
 <app-header></app-header>
 
 <div id="agent">
-  <h4>Agent Id: </h4>
+  <h4>Agent Id:  {{data}}</h4>
 </div><br>
 
-  <ion-list class="form" [formGroup]= "formData" (ngSubmit)= "onSubmitNew()">
 
-    <ion-item>
+<form class="form" >
+  <ion-list [formGroup]="formData" (ngSubmit)="onSubmit()">
+
+<ion-item>
   <ion-label>Date: </ion-label>
-  <ion-input formControlName="date" type= "date"></ion-input>
-</ion-item>
+  <ion-input formControlName="setDate" type="date" placeholder="Set the Date" ></ion-input>
+  <br><br />
 
-<ion-item>
   <ion-label>Time: </ion-label>
-  <ion-input formControlName="time" type= "time"></ion-input>
-</ion-item>
-
-<ion-item>
+  <ion-input formControlName="setTime" type="time" placeholder="Set the Time" value=""></ion-input>
+  <br><br />
+  
   <ion-label>OHIP: </ion-label>
-  <ion-input formControlName="ohip" type= "number"></ion-input>
-</ion-item>
+  <ion-input formControlName="setOhip" type="tel" placeholder="Enter your OHIP number"></ion-input>
+  <br><br />
 
-<ion-item>
   <ion-label>Email: </ion-label>
-  <ion-input formControlName="email" type= "email"></ion-input>
-</ion-item>
+  <ion-input formControlName="setEmail" type="email" placeholder="Enter your Email" value="james@gamil.com"></ion-input>
+  <br><br />
 
-<ion-item>
   <ion-label>Phone: </ion-label>
-  <ion-input formControlName="phone" type= "number"></ion-input>
+  <ion-input formControlName="setPhone" type="tel" placeholder="Enter your Phone Number"></ion-input>
+
 </ion-item>
 
 <ion-button type="sumbit" expand="block"> Add Appointment</ion-button>
 
   </ion-list>
+</form>
 
 <app-footer></app-footer>
 </ion-content>

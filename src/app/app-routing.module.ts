@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'booking-page',
+    path: 'booking-page/:parm',
     loadChildren: () => import('./pages/booking-page/booking-page.module').then( m => m.BookingPagePageModule)
   },
 ];

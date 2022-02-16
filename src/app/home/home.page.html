@@ -10,23 +10,23 @@
  <app-header></app-header>
 
  <div id="agent" >
-  <ion-label type="text"  placeholder="Andy">Agent Id:  </ion-label>
-<input type="text" required><br><br />
+  <ion-label type="text"  placeholder="Andy" >Agent Id:  </ion-label>
+<ion-input type="text" [(ngModel)]= "agent" (input)="check()"></ion-input><br><br />
 </div>
 
+<div id="show" *ngIf = "isShown">
 <div id="button">
-<ion-button> Load Appointments </ion-button> <br><br />
-<ion-button [routerLink]="['/booking-page']">Booking Page</ion-button>
+<ion-button (click)="retrieveMyDate()"> Load Appointments </ion-button> <br><br />
+<ion-button [routerLink]="['/booking-page','Andy']">Booking Page</ion-button>
 </div>
 
 
 <div class="DeleteDiv">
-  <ion-label>Delete Appointment: </ion-label>
+<ion-label>Delete Appointment: </ion-label>
+ <ion-input [(ngModel)]= "deleteId" type="tel" placeholder="Enter the Index of the Appointment"></ion-input><br><br />
+  <ion-button (click)="deleteMyData()">Comfirm Delete</ion-button>
 </div>
- <input type="number" placeholder="Enter the number of the item you want to delete starting from 0." /><br><br />
-  <ion-button>Comfirm Delete</ion-button>
 
-<!--
 <div id="dataShow">
  <div *ngFor= "let v of myVar" >                 
   <p>Date: {{v.appDate}}</p>
@@ -37,7 +37,7 @@
   <p>Agent: {{v.appAgent}}</p>
   <hr class="hr">
 </div>     
-     </div>-->
-
+</div>
+    </div>
  <app-footer></app-footer>
 </ion-content>

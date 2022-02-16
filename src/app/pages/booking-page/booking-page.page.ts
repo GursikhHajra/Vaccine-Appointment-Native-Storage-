@@ -13,22 +13,27 @@ export class BookingPagePage implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
+  data: any;
+
   ngOnInit() {
 
 
     this.formData = new FormGroup({
-      date: new FormControl(),
-      time: new FormControl(),
-      ohip: new FormControl(),
-      email: new FormControl(),
-      phone: new FormControl()
+      setDate:  new FormControl(),
+      setTime:  new FormControl(),
+      setOhip:  new FormControl(),
+      setEmail: new FormControl(),
+      setPhone: new FormControl()
     });
   }
 
-  onSubmitNew(){
+  onSubmit(){
     // console.log(this.formData.value)
     // this.ldData.addData((this.formData.value));
-    console.log(this.formData.value)
+    console.log("Form Data",this.formData.value)
+    this.data = this.route.snapshot.params.parm; 
+    console.dir(this.route.snapshot);
+    console.log("The data for the agent",this.data);
    }
 
 }
