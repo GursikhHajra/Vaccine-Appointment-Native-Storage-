@@ -94,8 +94,8 @@ retrieveMyDate(){
   //this.ldData.showAll();
   this.myVar = this.ldData.retrieveDate();
   console.log("it data", this.myVar);
-  this.ldData.setMessage(this.myVar.length());
-  console.log("len", this.myVar.length())
+  this.ldData.setMessage(this.jsonData.length);
+  console.log("len", this.jsonData.length)
 
 }
 
@@ -115,6 +115,9 @@ retrieveMyDate(){
     let x = this.myVar[this.deleteId]
     this.myVar.splice(this.deleteId, 1);
     this.ldData.deleteData(this.deleteId , x);
+    this.ldData.setMessage(this.jsonData.length);
+    console.log("len", this.jsonData.length)
+
 
    
     //console.log(this.deleteId)
