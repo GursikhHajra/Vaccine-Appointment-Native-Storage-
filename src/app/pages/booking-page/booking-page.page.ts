@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import { FormControl, FormGroup} from '@angular/forms';
 import {GetdataService} from '../../getdata.service';
 import { AlertController, ActionSheetController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-booking-page',

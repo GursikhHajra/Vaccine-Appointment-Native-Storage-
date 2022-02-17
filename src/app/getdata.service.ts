@@ -3,7 +3,7 @@ import VDATA from '../assets/data/vaccineData.json';
 import {Vdata} from '../app/vdata';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,8 @@ export class GetdataService {
   inValue;
   values: Vdata[] = new Array();
   jsonData: Vdata[] = VDATA.VaccineData
+  obsMsg: any;
+  x: any;
   //data: Vdata[] = JSON.parse(this.jsonData);
 
   
@@ -28,7 +30,26 @@ export class GetdataService {
       console.log("This is Native",nativeS, "KeyValue", i, "JsonData: ", this.jsonData);
     }
   }
-*/
+*//*
+message = new BehaviorSubject<string>(this.storage.keys().toString());
+setMessage(msg) {
+//  (4) AsObservable
+  this.message.next(this.x);
+  this.message.subscribe(
+    x => {console.log(`Value is ${x}.`); }
+    );
+}*/
+
+
+c = new BehaviorSubject('');
+sharedMessage = this.c.asObservable();
+setMessage(msg) {
+this.c.next(msg);
+}
+//  (4) AsObservable    
+//sharedMessage = this.message.asObservable();
+
+
 
 
 

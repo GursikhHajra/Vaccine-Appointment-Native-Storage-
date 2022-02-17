@@ -10,13 +10,13 @@
  <app-header></app-header>
 
  <div id="agent" >
-  <ion-label type="text"  placeholder="Andy" >Agent Id:  </ion-label>
-<ion-input type="text" [(ngModel)]= "agent" (input)="check()"></ion-input><br><br />
+  <ion-label type="text"  >Agent Id:  </ion-label>
+<ion-input type="text" [(ngModel)]= "agent" (input)="check()" placeholder="Andy"></ion-input>
 </div>
 
 <div id="show" *ngIf = "isShown">
 <div id="button">
-<ion-button (click)="retrieveMyDate()"> Load Appointments </ion-button> <br><br />
+<ion-button (click)="retrieveMyDate()"> Load Appointments </ion-button> 
 <ion-button [routerLink]="['/booking-page','Andy']">Booking Page</ion-button>
 <ion-button [routerLink]="['/nav-com']">App Version</ion-button>
 </div>
@@ -24,11 +24,12 @@
 
 <div class="DeleteDiv">
 <ion-label>Delete Appointment: </ion-label>
- <ion-input [(ngModel)]= "deleteId" type="tel" placeholder="Enter the Index of the Appointment"></ion-input><br><br />
+ <ion-input [(ngModel)]= "deleteId" type="tel" placeholder="Enter the Index of the Appointment"></ion-input>
   <ion-button (click)="showAlert()">Comfirm Delete</ion-button>
 </div>
 
 <div id="dataShow">
+  <h4>Total Appointments: {{myMsg}} </h4>
  <div *ngFor= "let v of myVar" >                 
   <p>Date: {{v.appDate}}</p>
   <p>Time: {{v.appTime}}</p>
@@ -36,6 +37,7 @@
   <p>Email: {{v.appEmail}}</p>
   <p>Phone: {{v.appPhone}}</p>
   <p>Agent: {{v.appAgent}}</p>
+  <ion-button style="float: right;" (click)="showAlert()">Delete</ion-button>
   <hr class="hr">
 </div>     
 </div>

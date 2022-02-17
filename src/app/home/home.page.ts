@@ -5,6 +5,7 @@ import { GetdataService } from '../getdata.service';
 import VDATA from '../../assets/data/vaccineData.json' 
 import { Router } from '@angular/router';
 import { AlertController, ActionSheetController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -23,8 +24,13 @@ export class HomePage {
   isShown: boolean = false;
   agent: string;
 
+  myMsg: any;
+
   constructor(private router: Router, private ldData: GetdataService, private route: ActivatedRoute, private alertController: AlertController, private actionSheet: ActionSheetController) {}
 
+
+
+  
   async showAlert() {
     /*const alert = await this.alertController.create({
       header: 'Alert',
@@ -79,7 +85,8 @@ export class HomePage {
 
   loadMyData(){
     this.ldData.laodData();
-    console.log("it is clicked", this.myVar);
+    
+   
 }
 
 retrieveMyDate(){
@@ -87,7 +94,8 @@ retrieveMyDate(){
   //this.ldData.showAll();
   this.myVar = this.ldData.retrieveDate();
   console.log("it data", this.myVar);
- 
+  this.ldData.setMessage(this.myVar.length());
+  console.log("len", this.myVar.length())
 
 }
 
@@ -116,6 +124,9 @@ retrieveMyDate(){
   ngOnInit() 
   {
     this.loadMyData(); 
-   
+    
+    
+    this.ldData.sharedMessage.subscribe(
+      message => { this.myMsg = message } );  
   }
 }
