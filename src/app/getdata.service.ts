@@ -3,6 +3,7 @@ import VDATA from '../assets/data/vaccineData.json';
 import {Vdata} from '../app/vdata';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class GetdataService {
   jsonData: Vdata[] = VDATA.VaccineData
   //data: Vdata[] = JSON.parse(this.jsonData);
 
+  
+
   constructor(private router: Router, private storage: NativeStorage) { }
   
  /* loadData() {
@@ -27,16 +30,29 @@ export class GetdataService {
   }
 */
 
+
+
 addRec() {
-  this.storage.setItem(this.inKey, this.jsonData)
+  this.storage.setItem(this.inKey, this.inValue)
   .then( data => {
   this.msg = 'Record inserted';
+  console.log(this.storage.getItem(this.inKey))
+  console.log(this.msg);
   },
   error => { this.msg = 'Record NOT inserted'; }
   );
-  console.log("values: ", this.values);
-  console.log("jsonData: ", this.jsonData);
+
+  console.log("inValue: ", this.inValue);
   }
+
+  laodData(){
+    for (let i = 0; i < this.jsonData.length; i++) {
+      this.inKey = i
+      this.inValue = this.jsonData[i]
+      this.addRec()
+    }
+  }
+
 
   retrieveDate(): Vdata[]{
     let v = [];

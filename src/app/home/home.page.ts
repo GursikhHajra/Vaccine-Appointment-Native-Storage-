@@ -52,7 +52,7 @@ export class HomePage {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      message: 'Are you sure you want to <strong>Delete this Appointment</strong>!!!',
       buttons: [
         {
           text: 'Cancel',
@@ -66,6 +66,7 @@ export class HomePage {
           text: 'Okay',
           id: 'confirm-button',
           handler: () => {
+            this.deleteMyData()
             console.log('Confirm Okay');
           }
         }
@@ -77,7 +78,7 @@ export class HomePage {
   
 
   loadMyData(){
-    this.ldData.addRec();
+    this.ldData.laodData();
     console.log("it is clicked", this.myVar);
 }
 
@@ -100,13 +101,14 @@ retrieveMyDate(){
     }
 
   deleteMyData(){
+    //this.showAlert();
     //parseInt(deleteNum);
     //this.myVar.splice(parseInt(deleteNum), 1);
     let x = this.myVar[this.deleteId]
     this.myVar.splice(this.deleteId, 1);
     this.ldData.deleteData(this.deleteId , x);
 
-    this.showAlert();
+   
     //console.log(this.deleteId)
    // console.log(x);
   }

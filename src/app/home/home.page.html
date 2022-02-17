@@ -18,13 +18,14 @@
 <div id="button">
 <ion-button (click)="retrieveMyDate()"> Load Appointments </ion-button> <br><br />
 <ion-button [routerLink]="['/booking-page','Andy']">Booking Page</ion-button>
+<ion-button [routerLink]="['/nav-com']">App Version</ion-button>
 </div>
 
 
 <div class="DeleteDiv">
 <ion-label>Delete Appointment: </ion-label>
  <ion-input [(ngModel)]= "deleteId" type="tel" placeholder="Enter the Index of the Appointment"></ion-input><br><br />
-  <ion-button (click)="deleteMyData()">Comfirm Delete</ion-button>
+  <ion-button (click)="showAlert()">Comfirm Delete</ion-button>
 </div>
 
 <div id="dataShow">
@@ -38,6 +39,7 @@
   <hr class="hr">
 </div>     
 </div>
-    </div>
+</div>
+    
  <app-footer></app-footer>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Device } from '@awesome-cordova-plugins/device/ngx';
 
 @Component({
   selector: 'app-device',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceComponent implements OnInit {
 
-  constructor() { }
+  devicePlatform; uuid; serial; manufer; version;
+  constructor(private device: Device) {
+  this.devicePlatform = device.platform;
+  this.uuid = device.uuid;
+  this.serial = device.serial;
+  this.manufer = device.manufacturer;
+  this.version = device.version;
+  }
 
   ngOnInit() {}
 

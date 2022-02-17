@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'booking-page/:parm',
     loadChildren: () => import('./pages/booking-page/booking-page.module').then( m => m.BookingPagePageModule)
   },
+  {
+    path: 'nav-com',
+    loadChildren: () => import('./pages/nav-com/nav-com.module').then( m => m.NavComPageModule)
+  },
 ];
 
 @NgModule({
